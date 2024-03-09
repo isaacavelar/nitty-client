@@ -29,7 +29,7 @@ export function AuthForm() {
     })
 
     async function onSubmit(values: AuthForm) {
-        const url = 'http://localhost:4955/auth'
+        const url = 'http://localhost:3000/auth'
 
         try {
             const response = await axios.post(url, values)

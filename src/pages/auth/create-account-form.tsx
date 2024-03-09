@@ -55,7 +55,7 @@ export function CreateAccountForm() {
                             </FormItem>
                         )}
                     />
-                  <Button>Login</Button>
+                  <Button>Criar Conta</Button>
                 </form>
             </Form>
         </div>
