@@ -16,7 +16,9 @@ export function AuthForm() {
     type AuthForm = z.infer<typeof authFormSchema>
 
     const authFormSchema = z.object({
-        email: z.string().min(2, 'Email deve conter pelo menos 2 caracteres!'),
+        email: z.string().email(
+            'O endereço de e-mail fornecido parece estar em um formato inválido. Por favor, certifique-se de digitar um endereço de e-mail válido, como exemplo@dominio.com.'
+        ),
         password: z.string().min(2, 'Senha deve conter pelo menos 2 caracteres!')
     })
 

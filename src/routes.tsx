@@ -1,12 +1,17 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Auth } from "./pages/auth/auth";
+import { Auth } from "./pages/login/auth/auth";
 import { App } from "./App";
+import { CreateAccount } from "./pages/login/create-account/create-account";
 
 export function Routes() {
     const router = createBrowserRouter([
         {
             path: '/login',
             element: <Auth />
+        },
+        {
+            path: '/account/create/:email',
+            element: <CreateAccount />
         },
         {
             path: '/',

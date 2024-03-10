@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { AuthForm } from "./auth-form"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { useState } from "react"
-import { CreateAccountForm } from "./create-account-form"
-import { CreateAccountPageTheme } from "./create-account-page-theme";
+import { CreateAccountFormEmail } from "../create-account/create-account-form"
+import { CreateAccountPageTheme } from "../create-account/create-account-page-theme";
 import { AuthPageTheme } from "./auth-page-theme";
 
 export function Auth() {
@@ -59,7 +59,7 @@ export function Auth() {
                                 <h1 className="text-2xl font-semibold tracking-tight">Criar uma conta</h1>
                                 <p className="text-sm text-muted-foreground">Digite seu e-mail abaixo para criar sua conta</p>
                             </div>
-                            <CreateAccountForm /> 
+                            <CreateAccountFormEmail /> 
                             <div className="flex items-center justify-center">
                                 <span className="w-28 border-t"></span>
                                 <span className="mx-4 text-xs uppercase text-muted-foreground">
