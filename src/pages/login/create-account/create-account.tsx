@@ -14,7 +14,7 @@ export function CreateAccount() {
                 </div>
             </div>
 
-            <hr className="border-solid border border-gray-200 h-full" />
+            <hr className="border-solid border h-full" />
 
             <div className="flex flex-1 justify-center">
                 <CreateAccountPageTheme />

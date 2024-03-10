@@ -1,7 +1,6 @@
 
-
 export function App() {
     return (
-        <h1>Alo</h1>
+        <h1>alo</h1>
     )
 }
