@@ -31,7 +31,7 @@ export function AuthForm() {
     })
 
     async function onSubmit(values: AuthForm) {
-        const url = 'http://localhost:3000/auth'
+        const url = 'http://localhost:3000/auth/token'
 
         try {
             const response = await axios.post(url, values)
@@ -40,8 +40,8 @@ export function AuthForm() {
         } catch (err: any) {
             toast({
                 variant: "destructive",
-                title: "Erro ao fazer login",
-                description: err.response.data.error,
+                title: err.response.data.error.title,
+                description: err.response.data.error.description,
             })
         }
     }

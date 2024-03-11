@@ -68,8 +68,16 @@ export function CreateAccountForm() {
         password: z.string().min(2, "Senha deve conter pelo menos 2 caracteres!"),
         name: z.string().min(2, "Nome deve conter pelo menos 2 caracteres!"),
         inglesLevel: z.string().min(2, "Por favor, selecione um nivel de inglês."),
-        dailyStudyTimeHours: z.string().min(2, "Deve selecionar ao menos 1 hora ou minuto."),
-        dailyStudyTimeMinutes: z.string().min(2, "Deve selecionar ao menos 1 hora ou minuto."),
+        dailyStudyTimeHours: z.string().min(1, "Deve selecionar ao menos 1 hora ou minuto.")
+        .refine(data => data !== '0', {
+            message: "Deve selecionar ao menos 1 hora ou minuto."
+        }).refine(data => Number(data) < 24, {
+            message: "O horario selecionado deve ser entre 1 e 24 horas."
+        }),
+        dailyStudyTimeMinutes: z.string().min(1, "Deve selecionar ao menos 1 hora ou minuto.")
+        .refine(data => data !== '0', {
+            message: "Deve selecionar ao menos 1 hora ou minuto."
+        })
     })
 
     type CreateAccountForm = z.infer<typeof createAccountFormSchema>

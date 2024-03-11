@@ -3,3 +3,8 @@ export interface Auth {
     expiresIn: number
     refreshToken: string
 }
+
+export interface AuthPayload {
+    email: string;
+    password: string;
+}

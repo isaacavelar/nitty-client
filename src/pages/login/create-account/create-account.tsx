@@ -1,5 +1,6 @@
-import { CreateAccountForm } from "./create-account-form";
-import { CreateAccountPageTheme } from "./create-account-page-theme";
+import { CreateAccountForm } from "./create-account-form"
+import { CreateAccountPageTheme } from "./create-account-page-theme"
+import { motion, AnimatePresence } from "framer-motion"
 
 export function CreateAccount() {
     return (
@@ -16,9 +17,19 @@ export function CreateAccount() {
 
             <hr className="border-solid border h-full" />
 
-            <div className="flex flex-1 justify-center">
-                <CreateAccountPageTheme />
-            </div>
+            <AnimatePresence>
+                <motion.div
+                    key="createAccountPageTheme"
+                    initial={{ opacity: 0, x: "-100%" }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: "100%" }}
+                    transition={{ duration: 0.5 }}
+                    className="flex flex-1 justify-center"
+                >
+                    <CreateAccountPageTheme />
+                </motion.div>
+            </AnimatePresence>
+
         </div>
     ) 
 }
