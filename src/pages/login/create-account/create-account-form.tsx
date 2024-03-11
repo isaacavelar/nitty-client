@@ -13,6 +13,8 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
+import { toast } from "@/components/ui/use-toast"
+import { CreateUserResponse } from "@/interfaces/users"
 
 export function CreateAccountFormEmail() {
     const navigate = useNavigate()
@@ -95,10 +97,22 @@ export function CreateAccountForm() {
     })
 
     async function onSubmit(values: CreateAccountForm) {
-       console.log(values)
+        try {
+            const response: CreateUserResponse = (await axios.post('http://localhost:3000/users', values)).data
+            toast({
+                title: response.message,
+                description: `Email: ${response.user.email}`,
+            }) 
+        } catch (err: any) {
+            toast({
+                variant: "destructive",
+                title: err.response.data.error.title,
+                description: err.response.data.error.description,
+            })
+        }
     }
 
-    async function returnLoginPage() {
+    function returnLoginPage() {
         navigate("/login")
     }
 
