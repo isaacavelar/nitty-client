@@ -98,11 +98,16 @@ export function CreateAccountForm() {
 
     async function onSubmit(values: CreateAccountForm) {
         try {
-            const response: CreateUserResponse = (await axios.post('http://localhost:3000/users', values)).data
+            const response: CreateUserResponse = (
+                await axios.post('http://localhost:3000/users', values)
+            ).data
+
             toast({
                 title: response.message,
                 description: `Email: ${response.user.email}`,
             }) 
+
+            navigate('/dashboard')
         } catch (err: any) {
             toast({
                 variant: "destructive",
@@ -140,7 +145,7 @@ export function CreateAccountForm() {
                             <FormItem>
                                 <FormLabel>Senha</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="senha" {...field} />
+                                    <Input type="password" placeholder="senha" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
