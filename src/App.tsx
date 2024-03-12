@@ -1,6 +1,10 @@
+import { Header } from "./components/header/header"
 
 export function App() {
     return (
-        <h1>alo</h1>
+        <div>
+            <Header />
+        </div>
+        
     )
 }
