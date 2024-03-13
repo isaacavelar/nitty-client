@@ -1,4 +1,6 @@
 export interface DefaultError {
-    title: string
-    description: string
+    error: {
+        title: string
+        description: string
+    }
 }

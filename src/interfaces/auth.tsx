@@ -1,7 +1,12 @@
 export interface Auth {
-    accesToken: string
-    expiresIn: number
+    accessToken: string
     refreshToken: string
+    expiresIn: number
+}
+
+export interface AuthRefreshTokenPayload {
+    token: string
+    userId: string
 }
 
 export interface AuthPayload {
