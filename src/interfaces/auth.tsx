@@ -6,7 +6,6 @@ export interface Auth {
 
 export interface AuthRefreshTokenPayload {
     token: string
-    userId: string
 }
 
 export interface AuthPayload {

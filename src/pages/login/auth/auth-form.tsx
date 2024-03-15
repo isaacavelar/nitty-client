@@ -35,7 +35,8 @@ export function AuthForm() {
 
         try {
             const response = await axios.post(url, values)
-            localStorage.setItem('auth', JSON.stringify(response))
+            localStorage.setItem('auth', JSON.stringify(response.data))
+            
             navigate('/dashboard')
         } catch (err: any) {
             toast({
