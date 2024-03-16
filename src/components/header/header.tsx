@@ -9,7 +9,7 @@ import { useTheme } from "../theme/theme-provider"
 
 export function Header() {
     const { theme } = useTheme()
-    const img = theme == "dark" ? NittyLogoDark: NittyLogoLigth
+    const img = theme === "dark" ? NittyLogoDark: NittyLogoLigth
 
     return (
         <div>

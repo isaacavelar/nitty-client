@@ -15,13 +15,12 @@ export function UseFetch<T = unknown>(url: string) {
     const token = (foundToken ? JSON.parse(foundToken): {}) as Auth
 
     const api = axios.create({
-        baseURL: `http://localhost:3000/api/v1`,
-        headers: {
-            "Authorization": token.accessToken
-        },
+        baseURL: `http://localhost:3000/api/v1`
     });
 
-    const refreshToken = (navigate: NavigateFunction, originalRequest?: Promise<any>) => {       
+    api.defaults.headers.common['Authorization'] = token.accessToken
+
+    const refreshToken = (navigate: NavigateFunction, callback: () => void) => {       
         axios.post<Auth, AxiosResponse<Auth>, AuthRefreshTokenPayload>(
             'http://localhost:3000/auth/refresh',
             {
@@ -32,7 +31,7 @@ export function UseFetch<T = unknown>(url: string) {
             localStorage.setItem('auth', JSON.stringify(response.data))
             api.defaults.headers.common['Authorization'] = response.data.accessToken
 
-            // originalRequest
+            return callback()
         })
         .catch((err: AxiosError) => {
             const { error } = err?.response?.data as DefaultError
@@ -49,7 +48,8 @@ export function UseFetch<T = unknown>(url: string) {
     }
 
     useEffect(() => {
-        api.get(url)
+        const request = () => {
+            api.get(url)
             .then(response => {
                 setData(response.data)
             })
@@ -57,7 +57,9 @@ export function UseFetch<T = unknown>(url: string) {
                 const { error } = err?.response?.data as DefaultError
 
                 if (err.response?.status === 401) {        
-                    refreshToken(navigate)
+                    refreshToken(navigate, () => {
+                        return request()
+                    })
                     return
                 }
 
@@ -70,6 +72,9 @@ export function UseFetch<T = unknown>(url: string) {
             .finally(() => {
                 setIsFetching(false)
             })
+        }
+        
+        request()
     }, [])
 
 
