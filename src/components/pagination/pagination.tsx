@@ -6,14 +6,14 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
-import { Pagination } from "@/interfaces/pagination"
+import { Pagination as IPagination } from "@/interfaces/pagination"
 
 import { 
     ChevronsRight,
     ChevronsLeft
 } from "lucide-react"
 
-export function Pagination({ qtdTotal, title, perPage, currentPage, pageChange}: Pagination) {
+export function Pagination({ qtdTotal, title, perPage, currentPage, pageChange}: IPagination) {
     let pagesQtd = Math.floor(qtdTotal / perPage)
     const rest = qtdTotal % perPage
 

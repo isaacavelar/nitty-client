@@ -4,7 +4,7 @@ import { CreateAccount } from "./pages/login/create-account/create-account"
 import { Base } from "./components/base/base"
 import { App } from "./App"
 import { Dashboard } from "./pages/dashboard/dashboard"
-import { Activities } from "./pages/activities/activities"
+import { Tasks } from "./pages/task/task"
 
 export function Routes() {
     const router = createBrowserRouter([
@@ -29,8 +29,8 @@ export function Routes() {
                             element: <Dashboard />
                         },
                         {
-                            path: '/activities',
-                            element: <Activities />
+                            path: '/tasks',
+                            element: <Tasks />
                         }
                     ]
                 },

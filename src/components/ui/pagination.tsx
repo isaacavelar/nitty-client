@@ -12,7 +12,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("mx-auto flex w-full justify-center", className)}
+    className={cn("flex justify-center", className)}
     {...props}
   />
 )
@@ -74,7 +74,7 @@ const PaginationPrevious = ({
     {...props}
   >
     <ChevronLeftIcon className="h-4 w-4" />
-    <span>Previous</span>
+    <span className="sr-only">Previous</span>
   </PaginationLink>
 )
 PaginationPrevious.displayName = "PaginationPrevious"
@@ -89,7 +89,7 @@ const PaginationNext = ({
     className={cn("", className)}
     {...props}
   >
-    <span>Next</span>
+    <span className="sr-only">Next</span>
     <ChevronRightIcon className="h-4 w-4" />
   </PaginationLink>
 )

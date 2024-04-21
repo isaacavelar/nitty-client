@@ -21,7 +21,7 @@ export function Header() {
                     </div> 
                     <div className="flex gap-8">
                         <Link to="/dashboard" className="transition-colors hover:text-foreground/80 text-foreground/60">Dashboard</Link>
-                        <Link to="/activities" className="transition-colors hover:text-foreground/80 text-foreground/60">Suas Atividades</Link>
+                        <Link to="/tasks" className="transition-colors hover:text-foreground/80 text-foreground/60">Suas Atividades</Link>
                         <Link to="/" className="transition-colors hover:text-foreground/80 text-foreground/60">Sobre</Link>
                     </div> 
                 </div> 
